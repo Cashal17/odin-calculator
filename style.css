@@ -1,0 +1,127 @@
+@import url('https://fonts.cdnfonts.com/css/led-digital-7');
+
+/* CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+html, body {
+    height: 100%;
+}
+img, picture, video, canvas, svg, iframe, object {
+    display: block;
+    max-width: 100%;
+}
+p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote {
+    overflow-wrap: break-word;
+}
+
+/* Actual Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(85, 185, 99);
+}
+
+.title {
+    margin: 10px 0px;
+    font-size: 24px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.calc-body {
+    background-color: lightslategray;
+    border: 3px solid black;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-around;
+    align-items: center;
+}
+
+.calc-display {
+    height: 80px;
+    width: 350px;
+    background-color: rgb(135, 146, 135);
+    color: rgb(25, 24, 24);
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: "LED Digital 7", sans-serif;
+    font-size: 48px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.curr-num {
+    height: 65%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.curr-expr {
+    height: 35%;
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 23.125%;
+    font-family: sans-serif;
+    font-size: 24px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bt-clear {
+    display: flex;
+    gap: 10px;
+    height: 60px;
+
+}
+
+.bt-ac {
+    font-weight: 700;
+    background-color: orange;
+    color: white;
+}
+
+.bt-bksp {
+    font-weight: 600;
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.bt-numpad {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 350px;
+    height: 300px;
+    padding-top: 10px;
+    gap: 5px;
+}
+
+.numpad, .bt-oper, .bt-pt, .bt-eq {
+    height: 23.125%;
+    font-weight: 400;
+    background-color: #e1ecf4;
+    box-shadow: #ffffffb3 0 1px 0 0 inset;
+    color: #39739d;
+}
