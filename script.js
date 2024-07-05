@@ -6,6 +6,7 @@ let oper = (a, b) => {
 };
 let defaultDisplayFlag = 0;
 let equalFlag = 0;
+let opFlag = 0;
 
 function addEventListeners() {
     const calcMainDisplay = document.querySelector(".curr-num");
@@ -33,7 +34,7 @@ function addEventListeners() {
 
     operList.forEach((elem) => {
         elem.addEventListener("click", (ev) => {
-            if (equalFlag === 0 && calcExprDisplay.textContent === "") {
+            if (equalFlag === 0 && opFlag === 0 && defaultDisplayFlag !== 0) {
                 input1 = parseInt(calcMainDisplay.textContent, 10);
                 calcMainDisplay.textContent = ev.target.textContent;
                 calcExprDisplay.textContent += (input1.toString() + ev.target.textContent);
@@ -63,12 +64,13 @@ function addEventListeners() {
                         break;
                 }
                 defaultDisplayFlag = 0;
+                opFlag = 1;
             }
         });
     });
 
     bt_eq.addEventListener("click", (ev) => {
-        if (equalFlag === 0 && calcExprDisplay.textContent !== "") {
+        if (equalFlag === 0 && defaultDisplayFlag === 1 && calcExprDisplay.textContent !== "") {
             input2 = parseInt(calcMainDisplay.textContent, 10);
             calcMainDisplay.textContent = "";
             let res = oper(input1, input2);
@@ -76,6 +78,7 @@ function addEventListeners() {
             calcExprDisplay.textContent += (input2.toString() + ev.target.textContent + res);
             equalFlag = 1;
             defaultDisplayFlag = -1;
+            opFlag = 0;
         }
     });
 
@@ -84,6 +87,7 @@ function addEventListeners() {
         calcExprDisplay.textContent = "";
         defaultDisplayFlag = 0;
         equalFlag = 0;
+        opFlag = 0;
     });
 
     bt_bksp.addEventListener("click", (ev) => {
